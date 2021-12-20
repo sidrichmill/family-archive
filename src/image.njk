@@ -1,0 +1,12 @@
+---
+layout: 'base.njk'
+pagination:
+  data: cloudinaryImages
+  size: 1
+  alias: image
+permalink: "/{{ image.file }}/index.html"
+---
+
+{{ image.directory }}
+
+<img class="hero-image" src="{{ cloudinary.baseUrl }}{{ image.urlSlug }}" alt="placeholder image alt">
