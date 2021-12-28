@@ -1,0 +1,12 @@
+{% macro breadcrumbs(path) %}
+    {# {% set pathArray %}
+        {{ path | split('/') }}
+    {% endset %} #}
+
+    {% set pathArray = path | split('/') %}
+    {% set pathString = "" %}
+    {% for dir in pathArray %}
+    {% set pathString = pathString + "/" + dir %}
+        <a href="{{ pathString }}/">{{ dir }}</a> > 
+    {% endfor %}
+{% endmacro %}

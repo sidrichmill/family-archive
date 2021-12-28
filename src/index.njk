@@ -3,5 +3,36 @@ title: Home
 layout: 'base.njk'
 ---
 
+{% from 'directoryMap.njk' import directoryMap %}
+{% from 'breadcrumbs.njk' import breadcrumbs %}
 
-Hello World from a template
+{{ cloudinaryDirectories | dump }}
+
+{# {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }} #}
+{% for folder in cloudinaryDirectories %}
+    {{ breadcrumbs(folder.path) }}
+    {# {{ folder.path | split('/') }} #}
+{% endfor %}
+
+
+
+<ul>
+
+{% for folder in cloudinaryDirectories %}
+    {{ directoryMap(folder) }}
+{% endfor %}
+
+
+
+{# {% for folder in cloudinaryDirectories %}
+
+    <li>{{ folder.name }}</li>
+        {% for subfolder in folder.folders %}
+            <ul><li>{{ subfolder.name }}</li>
+                {% for subsubfolder in subfolder.folders %}
+                    <ul><li>{{ subsubfolder.name }}</li></ul>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+{% endfor %} #}
+</ul>

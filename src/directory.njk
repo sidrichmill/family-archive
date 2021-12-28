@@ -1,0 +1,23 @@
+---
+layout: 'base.njk'
+pagination:
+  data: flatDirectoryMap
+  size: 1
+  alias: directory
+permalink: "/{{ directory.path }}/index.html"
+---
+
+{% from 'directoryMap.njk' import directoryMap %}
+{% from 'breadcrumbs.njk' import breadcrumbs %}
+
+{{ breadcrumbs(directory.path) }}
+
+<ul>
+
+{% for folder in cloudinaryDirectories %}
+    {{ directoryMap(folder) }}
+{% endfor %}
+
+</ul>
+
+{{ directory | dump }}

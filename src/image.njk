@@ -1,5 +1,8 @@
 ---
 layout: 'base.njk'
+eleventyNavigation:
+  key: image
+  parent: album
 pagination:
   data: cloudinaryImages
   size: 1
@@ -7,6 +10,13 @@ pagination:
 permalink: "/{{ image.file }}/index.html"
 ---
 
-{{ image.directory }}
+{{ image.name }}
 
-<img class="hero-image" src="{{ cloudinary.baseUrl }}{{ image.urlSlug }}" alt="placeholder image alt">
+<img class="hero-image" src="{{ image.imageSrc }}" alt="placeholder image alt">
+
+<style>
+  .hero-image {
+    max-width: 80vw;
+    max-height: 80vh;
+  }
+</style>

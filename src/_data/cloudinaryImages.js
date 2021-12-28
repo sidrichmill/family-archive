@@ -119,5 +119,4 @@ async function getContents(folderPath, maxResults){
 //getFolderStructure(args);
 
 
-
-//module.exports = getContents("film/Archive/Dates", 10);
+module.exports = getContents("film/Archive/Dates", 5);

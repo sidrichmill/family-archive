@@ -1,0 +1,18 @@
+{% macro directoryMap(path) %}
+<li>
+<a href="/{{ path.path }}/">{{ path.name }}</a>
+ {% if path.folders %}
+    <ul>
+        {% for folder in path.folders %}
+            {{ directoryMap(folder) }}
+            {% for image in folder.images %}
+                <img src="{{ image.url }}">
+            {% endfor %}
+        {% endfor %}
+        <ul>
+
+        </ul>
+    </ul>
+    {% endif %}
+</li>
+{% endmacro %}
