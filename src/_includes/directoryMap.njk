@@ -5,9 +5,11 @@
     <ul>
         {% for folder in path.folders %}
             {{ directoryMap(folder) }}
-            {% for image in folder.images %}
-                <img src="{{ image.url }}">
-            {% endfor %}
+            <div class="dirGallery">
+                {% for image in folder.images %}
+                    <img class="dirThumbnail" src="{{ image.url }}">
+                {% endfor %}
+            </div>
         {% endfor %}
         <ul>
 
@@ -15,4 +17,17 @@
     </ul>
     {% endif %}
 </li>
+
+<style>
+.dirGallery {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.dirThumbnail {
+    max-width: 20vw;
+    flex: 0 1 auto;
+}
+</style>
 {% endmacro %}
+

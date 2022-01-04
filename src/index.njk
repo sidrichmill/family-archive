@@ -2,19 +2,20 @@
 title: Home
 layout: 'base.njk'
 ---
+Just regular markup!
 
 {% from 'directoryMap.njk' import directoryMap %}
 {% from 'breadcrumbs.njk' import breadcrumbs %}
 
-{{ cloudinaryDirectories | dump }}
 
 {# {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }} #}
-{% for folder in cloudinaryDirectories %}
+{# {% for folder in cloudinaryDirectories %}
     {{ breadcrumbs(folder.path) }}
     {# {{ folder.path | split('/') }} #}
-{% endfor %}
-
-
+{# {% endfor %} #}
+{# <pre>
+{{ cloudinaryDirectories | dump(2) }}
+</pre> #}
 
 <ul>
 
@@ -22,7 +23,7 @@ layout: 'base.njk'
     {{ directoryMap(folder) }}
 {% endfor %}
 
-
+</ul>
 
 {# {% for folder in cloudinaryDirectories %}
 
@@ -34,5 +35,5 @@ layout: 'base.njk'
                 {% endfor %}
             </ul>
         {% endfor %}
-{% endfor %} #}
-</ul>
+{% endfor %}
+ #}

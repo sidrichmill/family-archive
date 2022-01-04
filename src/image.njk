@@ -1,18 +1,15 @@
 ---
 layout: 'base.njk'
-eleventyNavigation:
-  key: image
-  parent: album
 pagination:
-  data: cloudinaryImages
+  data: imageList
   size: 1
   alias: image
-permalink: "/{{ image.file }}/index.html"
+permalink: "/{{ image.public_id }}/index.html"
 ---
 
-{{ image.name }}
+{{ image.filename }}
 
-<img class="hero-image" src="{{ image.imageSrc }}" alt="placeholder image alt">
+<img class="hero-image" src="https://res.cloudinary.com/sid-miller-design/{{ cloudinary.medium }}{{ image.public_id }}" alt="placeholder image alt">
 
 <style>
   .hero-image {
